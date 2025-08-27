@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h3 {
+            border-bottom: 2px solid #5bc0de;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        button {
+            height: 50px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #5bc0de;
+            color: white;
+            padding: 0 25px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>1. Basic Calculator (using `alert` and `prompt`)</h3>
+    <button onclick="runAlertCalculator()">Run Calculator</button>
+
+    <h3>2. Other JavaScript Functions</h3>
+    <p>The results for the functions below are displayed in the browser's developer console.</p>
+    <p>(Right-click -> Inspect -> Console)</p>
+
+
+    <script>
+        function runAlertCalculator() {
+            const num1Str = prompt("Enter the first number:");
+            const num2Str = prompt("Enter the second number:");
+
+            const num1 = parseFloat(num1Str);
+            const num2 = parseFloat(num2Str);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Invalid input. Please enter valid numbers.");
+                return;
+            }
+
+            const operation = prompt("Choose an operation: add, subtract, multiply, or divide");
+
+            let result;
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        alert("Error: Cannot divide by zero.");
+                        return; 
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Invalid operation. Please choose add, subtract, multiply, or divide.");
+                    return; 
+            }
+
+            alert(`The result is: ${result}`);
+        }
+
+
+        function reverseString(str) {
+          return str.split('').reverse().join('');
+        }
+
+        function countVowels(str) {
+          const vowels = "aeiouAEIOU";
+          let count = 0;
+          for (let char of str) {
+            if (vowels.includes(char)) {
+              count++;
+            }
+          }
+          return count;
+        }
+
+        function sumUpToN(n) {
+          let sum = 0;
+          for (let i = 1; i <= n; i++) {
+            sum += i;
+          }
+          return sum;
+        }
+
+        function isEvenOrOdd(num) {
+          if (num % 2 === 0) {
+            return "Even";
+          } else {
+            return "Odd";
+          }
+        }
+
+        console.log("--- String and Number Utility Results ---");
+
+        let originalString = "hello world";
+        let reversed = reverseString(originalString);
+        console.log(`Original String: "${originalString}"`);
+        console.log(`Reversed String: "${reversed}"`);
+        console.log("--------------------");
+
+        let myString = "JavaScript is awesome";
+        let vowelCount = countVowels(myString);
+        console.log(`String for Vowel Count: "${myString}"`);
+        console.log(`Number of Vowels: ${vowelCount}`);
+        console.log("--------------------");
+
+        let numberToSum = 10;
+        let totalSum = sumUpToN(numberToSum);
+        console.log(`Sum of numbers from 1 to ${numberToSum}: ${totalSum}`);
+        console.log("--------------------");
+
+        let number1 = 42;
+        let number2 = 49;
+        console.log(`Is ${number1} even or odd? ${isEvenOrOdd(number1)}`);
+        console.log(`Is ${number2} even or odd? ${isEvenOrOdd(number2)}`);
+
+    </script>
+</body>
+</html>
